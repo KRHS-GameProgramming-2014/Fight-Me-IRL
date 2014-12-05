@@ -28,8 +28,6 @@ while True:
 				player1.go("up")
 			if event.key == pygame.K_d:
 				player1.go("right")
-			if event.key == pygame.K_s:
-				player1.go("down")
 			if event.key == pygame.K_a:
 				player1.go("left")
 		if event.type == pygame.KEYUP:
@@ -37,8 +35,6 @@ while True:
 				player1.go("stop up")
 			if event.key == pygame.K_d:
 				player1.go("stop right")
-			if event.key == pygame.K_s:
-				player1.go("stop down")
 			if event.key == pygame.K_a:
 				player1.go("stop left")
 				
@@ -47,8 +43,6 @@ while True:
 				player2.go("up")
 			if event.key == pygame.K_RIGHT:
 				player2.go("right")
-			if event.key == pygame.K_DOWN:
-				player2.go("down")
 			if event.key == pygame.K_LEFT:
 				player2.go("left")
 		if event.type == pygame.KEYUP:
@@ -56,30 +50,11 @@ while True:
 				player2.go("stop up")
 			if event.key == pygame.K_RIGHT:
 				player2.go("stop right")
-			if event.key == pygame.K_DOWN:
-				player2.go("stop down")
 			if event.key == pygame.K_UP:
 				player2.go("stop left")
 		
-	if len(balls) < 10:
-		if random.randint(0, .25*60) == 0:
-			balls += [Ball("images/Ball/ball.png",
-					  [random.randint(0,10), random.randint(0,10)],
-					  [random.randint(100, width-100), random.randint(100, height-100)])
-					  ]
-	player.update(width, height)
-	for ball in balls:
-		ball.update(width, height)
-		
-	for bully in balls:
-		for victem in balls:
-			bully.collideBall(victem)
-			bully.collidePlayer(player)
-	
-	for ball in balls:
-		if not ball.living:
-			balls.remove(ball)
-	
+
+
 	bgColor = r,g,b
 	screen.fill(bgColor)
 	screen.blit(bgI, bgR)

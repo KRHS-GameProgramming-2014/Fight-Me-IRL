@@ -10,7 +10,6 @@ class Player():
 		self.place(pos)
 		self.didBounceX = False
 		self.didBounceY = False
-		self.radius = (int(self.rect.height/2.0 + self.rect.width/2.0)/2) - 1
 		self.living = True
 		
 	def place(self, pos):
@@ -30,31 +29,13 @@ class Player():
 		if not self.didBounceX:
 			#print "trying to hit Wall"
 			if self.rect.left < 0 or self.rect.right > width:
-				self.pos = self.pos + 1024
+				self.pos = self.place(1,70)
+			if self.rect.left < 0 or self.rect.right > width:
+				self.pos = self.place(1023,70)
 				self.didBounceX = True
 				#print "hit xWall"
 		
-		
-	def collideBall(self, other):
-		if self != other:
-			if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
-				if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
-					if (self.radius + other.radius) > self.distance(other.rect.center):
-						if not self.didBounceX:
-							self.speedx = -self.speedx
-							self.didBouncex = True
-						if not self.didBounceY:
-							self.speedy = -self.speedy
-							self.didBounceY = True
-							#print "hit Ball"
 							
-	def collidePlayer(self, other):
-		if self != other:
-			if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
-				if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
-					if (self.radius + other.radius) > self.distance(other.rect.center):
-						self.living = False
-	
 	def distance(self, pt):
 		x1 = self.rect.center[0]
 		y1 = self.rect.center[1]
