@@ -1,5 +1,5 @@
 import pygame, sys, random
-from playerclass import Ball
+from playerclass2 import Player
 
 
 pygame.init()
@@ -11,13 +11,13 @@ height = 800
 size = width, height
 
 bgColor = r,g,b = 0, 0, 0
-bgI = pygame.image.load("")
+bgI = pygame.image.load("Map.png")
 bgR = bgI.get_rect()
 
 screen = pygame.display.set_mode(size)
 
-player1 = Player("", [10,0],[760,70]) 
-player2 = Player("", [10,0],[760,954]) 
+player1 = Player([760,70]) 
+player2 = Player([760,954]) 
 
 
 while True:
@@ -58,8 +58,7 @@ while True:
 	bgColor = r,g,b
 	screen.fill(bgColor)
 	screen.blit(bgI, bgR)
-	for ball in balls:
-		screen.blit(ball.image, ball.rect)
-	screen.blit(player.image, player.rect)
+	screen.blit(player1.image, player1.rect)
+	screen.blit(player2.image, player2.rect)
 	pygame.display.flip()
 	clock.tick(60)

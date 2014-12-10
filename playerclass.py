@@ -8,6 +8,7 @@ class Player():
 		self.speedy = speed[1]
 		self.speed = [self.speedx, self.speedy]
 		self.place(pos)
+		self.changed = False
 		self.didBounceX = False
 		self.didBounceY = False
 		self.living = True
@@ -42,6 +43,34 @@ class Player():
 		x2 = pt[0]
 		y2 = pt[1]
 		return math.sqrt(((x2-x1)**2) + ((y2-y1)**2))
+		
+	def go(self, direction):
+		if direction == "up":
+			self.facing = "up"
+			self.changed = True
+			self.speedy = -self.speed
+		elif direction == "stop up":
+			self.speedy = 0
+		elif direction == "down":
+			self.facing = "down"
+			self.changed = True
+			self.speedy = self.speed
+		elif direction == "stop down":
+			self.speedy = 0
+			
+		if direction == "right":
+			self.facing = "right"
+			self.changed = True
+			self.speedx = self.speed
+		elif direction == "stop right":
+			self.speedx = 0
+		elif direction == "left":
+			self.facing = "left"
+			self.changed = True
+			self.speedx = -self.speed
+		elif direction == "stop left":
+			self.speedx = 0
+
 		
 		
 		
