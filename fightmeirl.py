@@ -16,8 +16,8 @@ bgR = bgI.get_rect()
 
 screen = pygame.display.set_mode(size)
 
-player1 = Player([760,70]) 
-player2 = Player([760,954]) 
+player1 = Player([10,0],[760,70]) 
+player2 = Player([10,0],[760,954]) 
 
 
 while True:
