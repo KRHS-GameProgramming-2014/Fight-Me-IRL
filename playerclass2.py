@@ -2,7 +2,7 @@ import pygame, math
 
 
 class Player():
-	def __init__(self, speed = [0,0], pos = [760,70):
+	def __init__(self, speed = [0,0], pos = [760,70]):
 		self.upImages = [pygame.image.load("Game/Player1/p1_walk03.png"),
 						 pygame.image.load("Game/Player1/p1_walk03.png"),
 						 pygame.image.load("Game/Player1/p1_walk03.png")]
@@ -20,7 +20,6 @@ class Player():
 		self.didBounceX = False
 		self.didBounceY = False
 		self.living = True
-		self.rect = self.image.get_rect()
 		self.speedx = speed[0]
 		self.speedy = speed[1]
 		self.speed = [self.speedx, self.speedy]
