@@ -1,4 +1,4 @@
-python "fightmeirl.py"
+python "playerclass.py"
 
 pause
 del "%0"
