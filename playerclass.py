@@ -8,11 +8,13 @@ class Player():
 		self.speedy = speed[1]
 		self.speed = [self.speedx, self.speedy]
 		self.place(pos)
+		self.posx = pos[0]
+		self.posy = pos[1]
+		self.pos = [self.posx, self.posy]
 		self.changed = False
 		self.didBounceX = False
 		self.didBounceY = False
 		self.living = True
-		self.facing = "up"
 		self.maxSpeed = 10
 	
 	def place(self, pos):
@@ -32,12 +34,11 @@ class Player():
 		if not self.didBounceX:
 			#print "trying to hit Wall"
 			if self.rect.left < 0 or self.rect.right > width:
-				self.pos = self.place([1,70])
+				self.speed = 0			
 			if self.rect.left < 0 or self.rect.right > width:
-				self.pos = self.place([895,70])
+				self.speed = 0
 				self.didBounceX = True
 				#print "hit xWall"
-		
 							
 	def distance(self, pt):
 		x1 = self.rect.center[0]
@@ -53,12 +54,7 @@ class Player():
 			self.speedy = -self.maxSpeed
 		elif direction == "stop up":
 			self.speedy = 0
-		elif direction == "down":
-			self.facing = "down"
-			self.changed = True
-			self.speedy = self.maxSpeed
-		elif direction == "stop down":
-			self.speedy = 0
+		
 			
 		if direction == "right":
 			self.facing = "right"
@@ -73,8 +69,10 @@ class Player():
 		elif direction == "stop left":
 			self.speedx = 0
 
-		
-		
-		
+	def gravity(self, posy):
+		if posy < 598:
+			self.changed = True
+			self.speedy = self.maxSpeed
+
 		
 		

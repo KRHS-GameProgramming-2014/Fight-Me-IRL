@@ -50,7 +50,7 @@ while True:
 				player2.go("stop up")
 			if event.key == pygame.K_RIGHT:
 				player2.go("stop right")
-			if event.key == pygame.K_UP:
+			if event.key == pygame.K_LEFT:
 				player2.go("stop left")
 
 				
