@@ -32,9 +32,9 @@ class Player():
 		if not self.didBounceX:
 			#print "trying to hit Wall"
 			if self.rect.left < 0 or self.rect.right > width:
-				self.pos = self.place(1,70)
+				self.pos = self.place([1,70])
 			if self.rect.left < 0 or self.rect.right > width:
-				self.pos = self.place(1023,70)
+				self.pos = self.place([895,70])
 				self.didBounceX = True
 				#print "hit xWall"
 		

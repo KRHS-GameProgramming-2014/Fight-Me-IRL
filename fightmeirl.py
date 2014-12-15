@@ -60,6 +60,9 @@ while True:
 				player2.go("stop left")
 			if event.key == pygame.K_DOWN:
 				player1.go("stop down")
+				
+	player1.update(width, height)
+	player2.update(width, height)
 		
 
 
