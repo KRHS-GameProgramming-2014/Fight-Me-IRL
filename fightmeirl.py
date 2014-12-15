@@ -1,13 +1,13 @@
 import pygame, sys, random
-from playerclass2 import Player
+from playerclass import Player
 
 
 pygame.init()
 
 clock = pygame.time.Clock()
 
-width = 1024 
-height = 800
+width = 896
+height = 700
 size = width, height
 
 bgColor = r,g,b = 0, 0, 0
@@ -16,8 +16,8 @@ bgR = bgI.get_rect()
 
 screen = pygame.display.set_mode(size)
 
-player1 = Player([10,0],[760,70]) 
-player2 = Player([10,0],[760,954]) 
+player1 = Player("p1_walk03.png" ,[10,0],[800,598]) 
+player2 = Player("p1_walk03.png",[10,0],[100,598]) 
 
 
 while True:
@@ -30,6 +30,8 @@ while True:
 				player1.go("right")
 			if event.key == pygame.K_a:
 				player1.go("left")
+			if event.key == pygame.K_s:
+				player1.go("down")
 		if event.type == pygame.KEYUP:
 			if event.key == pygame.K_w:
 				player1.go("stop up")
@@ -37,6 +39,8 @@ while True:
 				player1.go("stop right")
 			if event.key == pygame.K_a:
 				player1.go("stop left")
+			if event.key == pygame.K_s:
+				player1.go("stop down")
 				
 		if event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_UP:
@@ -45,6 +49,8 @@ while True:
 				player2.go("right")
 			if event.key == pygame.K_LEFT:
 				player2.go("left")
+			if event.key == pygame.K_DOWN:
+				player1.go("down")
 		if event.type == pygame.KEYUP:
 			if event.key == pygame.K_UP:
 				player2.go("stop up")
@@ -52,6 +58,8 @@ while True:
 				player2.go("stop right")
 			if event.key == pygame.K_UP:
 				player2.go("stop left")
+			if event.key == pygame.K_DOWN:
+				player1.go("stop down")
 		
 
 
