@@ -52,8 +52,11 @@ while True:
 				player2.go("stop right")
 			if event.key == pygame.K_LEFT:
 				player2.go("stop left")
-
 				
+	player1.gravity
+	player1.gravity
+
+
 	player1.update(width, height)
 	player2.update(width, height)
 
