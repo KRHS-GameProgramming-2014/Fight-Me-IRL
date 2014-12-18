@@ -34,10 +34,13 @@ class Player():
 		if not self.didBounceX:
 			#print "trying to hit Wall"
 			if self.rect.left < 0 or self.rect.right > width:
-				self.speed = 0			
-			if self.rect.left < 0 or self.rect.right > width:
-				self.speed = 0
+				self.speedx = 0
 				self.didBounceX = True
+				#print "hit xWall"
+		if not self.didBounceY:
+			if self.rect.top < height or self.rect.bottom > 598:
+				self.speedy = 0
+				self.didBounceY = True
 				#print "hit xWall"
 							
 	def distance(self, pt):
@@ -73,11 +76,8 @@ class Player():
 		elif direction == "stop left":
 			self.speedx = 0
 
-	def gravity(self, pos):
-		if self.posy < 598:
-			self.speedy = self.maxSpeed
-		elif self.posy> 598:
-			self.speedy = 0
+
+		
 
 
 		

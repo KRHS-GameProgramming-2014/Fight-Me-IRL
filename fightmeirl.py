@@ -32,7 +32,7 @@ while True:
 				player1.go("left")
 		if event.type == pygame.KEYUP:
 			if event.key == pygame.K_w:
-				player1.go("stop up")
+				player1.go("down")
 			if event.key == pygame.K_d:
 				player1.go("stop right")
 			if event.key == pygame.K_a:
@@ -47,20 +47,15 @@ while True:
 				player2.go("left")
 		if event.type == pygame.KEYUP:
 			if event.key == pygame.K_UP:
-				player2.go("stop up")
+				player2.go("down")
 			if event.key == pygame.K_RIGHT:
 				player2.go("stop right")
 			if event.key == pygame.K_LEFT:
 				player2.go("stop left")
-				
-	player1.gravity
-	player1.gravity
 
 
 	player1.update(width, height)
 	player2.update(width, height)
-
-		
 
 
 	bgColor = r,g,b
