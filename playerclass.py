@@ -38,26 +38,15 @@ class Player():
 				self.didBounceX = True
 				#print "hit xWall"
 		if not self.didBounceY:
-			if self.rect.top < height or self.rect.bottom > 598:
+			if self.rect.bottom > 598:
 				self.speedy = 0
-				self.didBounceY = True
+				self.didBounceY = False
 				#print "hit xWall"
 							
-	def distance(self, pt):
-		x1 = self.rect.center[0]
-		y1 = self.rect.center[1]
-		x2 = pt[0]
-		y2 = pt[1]
-		return math.sqrt(((x2-x1)**2) + ((y2-y1)**2))
+
 		
 	def go(self, direction):
-		if direction == "up":
-			self.facing = "up"
-			self.changed = True
-			self.speedy = -self.maxSpeed
-		elif direction == "stop up":
-			self.speedy = 0
-		elif direction == "down":
+		if direction == "down":
 			self.facing = "down"
 			self.changed = True
 			self.speedy = self.maxSpeed
@@ -75,6 +64,14 @@ class Player():
 			self.speedx = -self.maxSpeed
 		elif direction == "stop left":
 			self.speedx = 0
+			
+	def jump(self, direction):
+		if direction == "up":
+			self.facing = "up"
+			self.changed = True
+			self.speedy = -self.maxSpeed
+		elif direction == "stop up":
+			self.speedy = 7
 
 
 		

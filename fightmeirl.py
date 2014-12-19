@@ -25,14 +25,14 @@ while True:
 		if event.type == pygame.QUIT: sys.exit()
 		if event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_w:
-				player1.go("up")
+				player1.jump("up")
 			if event.key == pygame.K_d:
 				player1.go("right")
 			if event.key == pygame.K_a:
 				player1.go("left")
 		if event.type == pygame.KEYUP:
 			if event.key == pygame.K_w:
-				player1.go("down")
+				player1.jump("stop up")
 			if event.key == pygame.K_d:
 				player1.go("stop right")
 			if event.key == pygame.K_a:
@@ -40,14 +40,14 @@ while True:
 				
 		if event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_UP:
-				player2.go("up")
+				player2.jump("up")
 			if event.key == pygame.K_RIGHT:
 				player2.go("right")
 			if event.key == pygame.K_LEFT:
 				player2.go("left")
 		if event.type == pygame.KEYUP:
 			if event.key == pygame.K_UP:
-				player2.go("down")
+				player2.jump("stop up")
 			if event.key == pygame.K_RIGHT:
 				player2.go("stop right")
 			if event.key == pygame.K_LEFT:
