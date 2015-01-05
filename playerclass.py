@@ -38,7 +38,7 @@ class Player():
 				self.didBounceX = True
 				#print "hit xWall"
 		if not self.didBounceY:
-			if self.rect.bottom > 598:
+			if self.rect.bottom > 640:
 				self.speedy = 0
 				self.didBounceY = False
 				#print "hit xWall"
@@ -69,7 +69,7 @@ class Player():
 		if direction == "up":
 			self.facing = "up"
 			self.changed = True
-			self.speedy = -self.maxSpeed
+			self.posy = -self.maxSpeed
 		elif direction == "stop up":
 			self.speedy = 7
 
