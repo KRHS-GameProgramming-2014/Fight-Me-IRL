@@ -16,8 +16,8 @@ bgR = bgI.get_rect()
 
 screen = pygame.display.set_mode(size)
 
-player1 = Player("p1_walk03.png" ,[10,0],[800,598]) 
-player2 = Player("p1_walk03.png",[10,0],[100,598]) 
+player1 = Player("p1_walk03.png" ,[0,0],[800,598]) 
+player2 = Player("p1_walk03.png",[0,0],[100,598]) 
 
 
 while True:
@@ -30,6 +30,8 @@ while True:
 				player1.go("right")
 			if event.key == pygame.K_a:
 				player1.go("left")
+			if event.key == pygame.K_SPACE:
+				bullets += player1.shoot()
 		if event.type == pygame.KEYUP:
 			if event.key == pygame.K_w:
 				player1.fly("stop up")
@@ -37,7 +39,10 @@ while True:
 				player1.go("stop right")
 			if event.key == pygame.K_a:
 				player1.go("stop left")
-				
+			if event.key == pygame.K_SPACE:
+				player1.shoot("stop")
+                        
+                
 		if event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_UP:
 				player2.fly("up")
@@ -45,6 +50,8 @@ while True:
 				player2.go("right")
 			if event.key == pygame.K_LEFT:
 				player2.go("left")
+			if event.key == pygame.K_SPACE
+				bullets += player2.shoot()
 		if event.type == pygame.KEYUP:
 			if event.key == pygame.K_UP:
 				player2.fly("stop up")
@@ -52,6 +59,8 @@ while True:
 				player2.go("stop right")
 			if event.key == pygame.K_LEFT:
 				player2.go("stop left")
+			if event.key == pygame.K_SPACE:
+				player2.shoot("stop")
 
 
 	player1.update(width, height)
