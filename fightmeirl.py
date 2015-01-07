@@ -19,6 +19,8 @@ screen = pygame.display.set_mode(size)
 player1 = Player("p1_walk03.png" ,[10,0],[800,598]) 
 player2 = Player("p1_walk03.png",[10,0],[100,598]) 
 
+pygame.mixer.music.load("coco.mp3")
+pygame.mixer.music.play(5)
 
 while True:
 	for event in pygame.event.get():
