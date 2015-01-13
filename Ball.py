@@ -8,6 +8,7 @@ class Ball():
                 self.speedy = speed[1]
                 self.speed = [self.speedx, self.speedy]
                 self.place(pos)
+                self.maxSpeed = 10
                 self.didBounceX = False
                 self.didBounceY = False
                 self.radius = (int(self.rect.height/2.0 + self.rect.width/2.0)/2) - 1
