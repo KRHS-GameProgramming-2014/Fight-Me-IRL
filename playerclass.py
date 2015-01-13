@@ -65,13 +65,13 @@ class Player():
 		elif direction == "stop left":
 			self.speedx = 0
 			
-	def jump(self, direction):
+	def fly(self, direction):
 		if direction == "up":
 			self.facing = "up"
 			self.changed = True
-			self.posy = -self.maxSpeed
+			self.speedy = -7
 		elif direction == "stop up":
-			self.speedy = 7
+			self.speedy = 5
 
 
 		
