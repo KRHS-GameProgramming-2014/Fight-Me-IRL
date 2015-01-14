@@ -37,6 +37,14 @@ while True:
 				player1.go("left")
 			if event.key == pygame.K_SPACE:
 				bullets += player1.shoot("fire")
+			if event.key == pygame.K_UP:
+				player2.go("up")
+			if event.key == pygame.K_RIGHT:
+				player2.go("right")
+			if event.key == pygame.K_LEFT:
+				player2.go("left")
+			if event.key == pygame.K_l:
+				bullets += player2.shoot("fire")
 		if event.type == pygame.KEYUP:
 			if event.key == pygame.K_w:
 				player1.go("stop up")
@@ -46,18 +54,6 @@ while True:
 				player1.go("stop left")
 			if event.key == pygame.K_SPACE:
 				player1.shoot("stop")
-                        
-                
-		if event.type == pygame.KEYDOWN:
-			if event.key == pygame.K_UP:
-				player2.go("up")
-			if event.key == pygame.K_RIGHT:
-				player2.go("right")
-			if event.key == pygame.K_LEFT:
-				player2.go("left")
-			if event.key == pygame.K_l:
-				bullets += player2l.shoot("fire")
-		if event.type == pygame.KEYUP:
 			if event.key == pygame.K_UP:
 				player2.go("stop up")
 			if event.key == pygame.K_RIGHT:
@@ -66,21 +62,18 @@ while True:
 				player2.go("stop left")
 			if event.key == pygame.K_l:
 				player2.shoot("stop")
-				
-				
-		player1.update(width, height)
-		if player1.shooting:
-			bullets += player1.shoot()		
                 
-		player2.update(width, height)
-		if player2.shooting:
-			bullets += player2.shoot()	
-		for bullet in bullets:
-			bullet.update(width, height)
-               
-		for bullet in bullets:
-			if not bullet.living:
-				bullets.remove(bullet)
+				
+	player1.update(width, height)	
+			
+	player2.update(width, height)
+	
+	for bullet in bullets:
+		bullet.update(width, height)
+		   
+	for bullet in bullets:
+		if not bullet.living:
+			bullets.remove(bullet)
         
         
 

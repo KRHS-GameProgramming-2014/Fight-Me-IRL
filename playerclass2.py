@@ -23,7 +23,6 @@ class Player(Ball):
         self.maxWait = 60*.25
         self.image = self.images[self.frame]
         self.rect = self.image.get_rect(center = self.rect.center)
-        self.maxSpeed = 5
         self.pistol = Gun("pistol")
         self.gun = self.pistol
         self.shooting = False
@@ -32,26 +31,7 @@ class Player(Ball):
         Ball.update(self, width, height)
         self.animate()
         self.changed = False
-        print self.gun.coolDown
-        if self.gun.coolDown > 0:
-            if self.gun.coolDown < self.gun.coolDownMax:
-                self.gun.coolDown += 1
-            else:
-                self.gun.coolDown = 0
-        
-    def collideWall(self, width, height):
-        if not self.didBounceX:
-            #print "trying to hit Wall"
-            if self.rect.left < 0 or self.rect.right > width:
-                self.speedx = 0
-                self.didBounceX = True
-                #print "hit xWall"
-        if not self.didBounceY:
-            if self.rect.top < 0 or self.rect.bottom > 599:
-                self.speedy = 0
-                self.didBounceY = True
-                #print "hit xWall"
-    
+
     def animate(self):
         if self.waitCount < self.maxWait:
             self.waitCount += 1

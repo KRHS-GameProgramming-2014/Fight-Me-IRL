@@ -31,12 +31,12 @@ class Ball():
                 if not self.didBounceX:
                         #print "trying to hit Wall"
                         if self.rect.left < 0 or self.rect.right > width:
-                                self.speedx = -self.speedx
+                                self.speedx = 0
                                 self.didBounceX = True
                                 #print "hit xWall"
                 if not self.didBounceY:
-                        if self.rect.top < 0 or self.rect.bottom > height:
-                                self.speedy = -self.speedy
+                        if self.rect.bottom > 645:
+                                self.speedy = 0
                                 self.didBounceY = True
                                 #print "hit xWall"
                 
@@ -60,9 +60,4 @@ class Ball():
                                         if (self.radius + other.radius) > self.distance(other.rect.center):
                                                 self.living = False
         
-        def distance(self, pt):
-                x1 = self.rect.center[0]
-                y1 = self.rect.center[1]
-                x2 = pt[0]
-                y2 = pt[1]
-                return math.sqrt(((x2-x1)**2) + ((y2-y1)**2))
+

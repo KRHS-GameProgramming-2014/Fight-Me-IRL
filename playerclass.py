@@ -94,5 +94,14 @@ class Player():
 				return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing)]
 
 
-
+    def shoot(self, command):
+        if command == "stop":
+            self.shooting = False
+        elif command == "fire":
+            return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing)]
+            self.shooting = True
+            return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing)]
+        else:
+            return []
+            
 		
