@@ -1,4 +1,6 @@
 import pygame, math
+from projectile import Bullet
+from gun import Gun
 
 class Player():
 	def __init__(self, image, speed = [0,0], pos = [0,0]):
@@ -7,6 +9,7 @@ class Player():
 		self.speedx = speed[0]
 		self.speedy = speed[1]
 		self.speed = [self.speedx, self.speedy]
+		self.maxSpeed = 10
 		self.place(pos)
 		self.posx = pos[0]
 		self.posy = pos[1]
@@ -16,6 +19,9 @@ class Player():
 		self.didBounceY = False
 		self.living = True
 		self.maxSpeed = 10
+		self.pistol = Gun("pistol")
+        self.shooting = False
+       
 
 	def place(self, pos):
 		self.rect.center = pos
@@ -26,6 +32,12 @@ class Player():
 		self.speed = [self.speedx, self.speedy]
 		self.move()
 		self.collideWall(width, height)
+		print self.gun.coolDown
+        if self.gun.coolDown > 0:
+            if self.gun.coolDown < self.gun.coolDownMax:
+                self.gun.coolDown += 1
+            else:
+                self.gun.coolDown = 0
 		
 	def move(self):
 		self.rect = self.rect.move(self.speed)
@@ -69,12 +81,20 @@ class Player():
 		if direction == "up":
 			self.facing = "up"
 			self.changed = True
-			self.speedy = -7
+			self.speedy = -self.maxSpeed
 		elif direction == "stop up":
-			self.speedy = 5
+			self.speedy = 7
 
 
-		
 
-
+    def shoot(self, command):
+        if command == "stop":
+            self.shooting = False
+        elif command == "fire":
+            return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing)]
+            self.shooting = True
+            return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing)]
+        else:
+            return []
+            
 		
