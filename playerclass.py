@@ -85,13 +85,6 @@ class Player():
 		elif direction == "stop up":
 			self.speedy = 7
 
-	def shoot(self, command = ""):
-		if command == "stop":
-			self.shooting = False
-		if self.gun.coolDown == 0:
-			self.gun.coolDown += 1
-			if self.gun.kind == "pistol":
-				return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing)]
 
 
     def shoot(self, command):

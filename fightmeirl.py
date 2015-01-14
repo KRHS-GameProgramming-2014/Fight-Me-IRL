@@ -10,7 +10,10 @@ width = 896
 height = 700
 size = width, height
 
+screen = pygame.display.set_mode(size)
+
 bgColor = r,g,b = 0, 0, 0
+
 bgI = pygame.image.load("Map.png")
 bgR = bgI.get_rect()
 
