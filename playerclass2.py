@@ -14,7 +14,7 @@ class Player(Ball):
                            ]
         self.rightImages = [pygame.image.load("p1_walk03.png"),
                             ]
-        self.facing = "up"
+        self.facing = "right"
         self.changed = False
         self.images = self.upImages
         self.frame = 0
@@ -24,8 +24,23 @@ class Player(Ball):
         self.image = self.images[self.frame]
         self.rect = self.image.get_rect(center = self.rect.center)
         self.pistol = Gun("pistol")
+        self.melee = Gun("melee")
         self.gun = self.pistol
         self.shooting = False
+        self.life = 0
+        
+       
+    
+    def collideBullet(self, other, owner):
+        self.owner = owner
+        if other != self.owner:
+			if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
+				if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
+					self.life += 1
+        if self.life == 5:
+            self.living = False
+            print "dead"
+            
             
     def update(self, width, height):
         Ball.update(self, width, height)
@@ -80,9 +95,10 @@ class Player(Ball):
         if command == "stop":
             self.shooting = False
         elif command == "fire":
-            return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing)]
+            return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing, self)]
             self.shooting = True
-            return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing)]
+            return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing, self)]
         else:
             return []
             
+
