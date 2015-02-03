@@ -27,20 +27,15 @@ class Player(Ball):
         self.melee = Gun("melee")
         self.gun = self.pistol
         self.shooting = False
-        self.life = 0
-        
-       
+        self.living = True
+        self.owner = self
     
-    def collideBullet(self, other, owner):
-        self.owner = owner
+    def collideBullet(self, other):
         if other != self.owner:
-			if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
-				if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
-					self.life += 1
-        if self.life == 5:
-            self.living = False
-            print "dead"
-            
+            if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
+                if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
+                    self.living = False
+                    print "dead"  
             
     def update(self, width, height):
         Ball.update(self, width, height)

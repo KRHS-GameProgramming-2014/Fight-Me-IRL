@@ -21,7 +21,7 @@ player2 = Player([100,598])
 
 bullets = []
 
-enemies = []
+players = [player1, player2]
 
 run = False
 
@@ -84,31 +84,30 @@ while True:
         player1.update(width, height)
         player2.update(width, height)
 
-
         for bullet in bullets:
             bullet.update(width, height)
                
         for bullet in bullets:
             bullet.collidePlayer(player1)
             bullet.collidePlayer(player2)
-            player2.collideBullet(bullet, player2)
-            player1.collideBullet(bullet, player1)
-        
-
+            player2.collideBullet(bullet)
+            player1.collideBullet(bullet)
 
         for bullet in bullets:
             if not bullet.living:
                 bullets.remove(bullet)
-            
         
-
-
+        for player in players:
+            if not player.living:
+                print player
+                players.remove(player)
+        
         bgColor = r,g,b
         screen.fill(bgColor)
         screen.blit(bgImage, bgRect)
         for bullet in bullets:
             screen.blit(bullet.image, bullet.rect)
-        screen.blit(player1.image, player1.rect)
-        screen.blit(player2.image, player2.rect)
+        for player in players:
+            screen.blit(player.image, player.rect)
         pygame.display.flip()
         clock.tick(60)
