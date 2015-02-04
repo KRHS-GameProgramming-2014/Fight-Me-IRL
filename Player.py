@@ -1,6 +1,6 @@
 import pygame
 from Ball import Ball
-from projectile import Bullet
+from Bullet import Bullet
 from gun import Gun
 
 class Player(Ball):

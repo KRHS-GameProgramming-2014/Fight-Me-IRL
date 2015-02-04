@@ -1,6 +1,6 @@
 import pygame, sys, random
-from playerclass2 import Player
-from projectile import Bullet
+from Player import Player
+from Bullet import Bullet
 
 pygame.init()
 
