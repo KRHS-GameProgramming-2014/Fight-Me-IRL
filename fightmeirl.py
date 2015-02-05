@@ -64,7 +64,7 @@ while True:
                     bullets += player2.shoot("fire")
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
-                    player1.go("stop up")
+                    player1.go("down")
                 if event.key == pygame.K_RIGHT:
                     player1.go("stop right")
                 if event.key == pygame.K_LEFT:
@@ -72,7 +72,7 @@ while True:
                 if event.key == pygame.K_l:
                     player1.shoot("stop")
                 if event.key == pygame.K_w:
-                    player2.go("stop up")
+                    player2.go("down")
                 if event.key == pygame.K_d:
                     player2.go("stop right")
                 if event.key == pygame.K_a:

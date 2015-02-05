@@ -5,18 +5,54 @@ from gun import Gun
 
 class Player(Ball):
     def __init__(self, pos):
-        Ball.__init__(self, "p1_walk03.png", [0,0], pos)
-        self.upImages = [pygame.image.load("p1_walk03.png"),
-                        ]
-        self.downImages = [pygame.image.load("p1_walk03.png"),
-                          ]
-        self.leftImages = [pygame.image.load("p1_walk03.png"),
-                           ]
-        self.rightImages = [pygame.image.load("p1_walk03.png"),
-                            ]
+        Ball.__init__(self, "images/p1_walk03.png", [0,0], pos)
+        self.upImages = [pygame.image.load("images/p1_walk03.png"),
+                         pygame.image.load("images/p1_walk03.png"),
+                         pygame.image.load("images/p1_walk03.png"),
+                         pygame.image.load("images/p1_walk03.png"),
+                         pygame.image.load("images/p1_walk03.png"),
+                         pygame.image.load("images/p1_walk03.png"),
+                         pygame.image.load("images/p1_walk03.png"),
+                         pygame.image.load("images/p1_walk03.png"),
+                         pygame.image.load("images/p1_walk03.png"),
+                         pygame.image.load("images/p1_walk03.png"),
+                         pygame.image.load("images/p1_walk03.png")]
+        self.downImages = [pygame.image.load("images/p1_walk03.png"),
+                           pygame.image.load("images/p1_walk03.png"),
+                           pygame.image.load("images/p1_walk03.png"),
+                           pygame.image.load("images/p1_walk03.png"),
+                           pygame.image.load("images/p1_walk03.png"),
+                           pygame.image.load("images/p1_walk03.png"),
+                           pygame.image.load("images/p1_walk03.png"),
+                           pygame.image.load("images/p1_walk03.png"),
+                           pygame.image.load("images/p1_walk03.png"),
+                           pygame.image.load("images/p1_walk03.png"),
+                           pygame.image.load("images/p1_walk03.png")]
+        self.leftImages = [pygame.image.load("images/p1_walk01.png"),
+                           pygame.image.load("images/p1_walk04.png"),
+                           pygame.image.load("images/p1_walk03.png"),
+                           pygame.image.load("images/p1_walk04.png"),
+                           pygame.image.load("images/p1_walk05.png"),
+                           pygame.image.load("images/p1_walk06.png"),
+                           pygame.image.load("images/p1_walk07.png"),
+                           pygame.image.load("images/p1_walk08.png"),
+                           pygame.image.load("images/p1_walk09.png"),
+                           pygame.image.load("images/p1_walk10.png"),
+                           pygame.image.load("images/p1_walk11.png")]
+        self.rightImages = [pygame.image.load("images/p1_walk01.png"),
+                           pygame.image.load("images/p1_walk04.png"),
+                           pygame.image.load("images/p1_walk03.png"),
+                           pygame.image.load("images/p1_walk04.png"),
+                           pygame.image.load("images/p1_walk05.png"),
+                           pygame.image.load("images/p1_walk06.png"),
+                           pygame.image.load("images/p1_walk07.png"),
+                           pygame.image.load("images/p1_walk08.png"),
+                           pygame.image.load("images/p1_walk09.png"),
+                           pygame.image.load("images/p1_walk10.png"),
+                           pygame.image.load("images/p1_walk11.png")]
         self.facing = "right"
         self.changed = False
-        self.images = self.upImages
+        self.images = self.rightImages
         self.frame = 0
         self.maxFrame = len(self.images) - 1
         self.waitCount = 0
@@ -70,7 +106,9 @@ class Player(Ball):
             self.facing = "up"
             self.changed = True
             self.speedy = -self.maxSpeed
-        elif direction == "stop up":
+        elif direction == "down":
+            self.facing = "down"
+            self.changed = True
             self.speedy = 5
             
         if direction == "right":
