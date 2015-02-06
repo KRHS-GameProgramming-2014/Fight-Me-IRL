@@ -1,6 +1,6 @@
 import pygame, sys, random
-from playerclass2 import Player
-from projectile import Bullet
+from Player import Player
+from Bullet import Bullet
 
 pygame.init()
 
@@ -21,7 +21,7 @@ player2 = Player([100,598])
 
 bullets = []
 
-enemies = []
+players = [player1, player2]
 
 run = False
 
@@ -64,7 +64,7 @@ while True:
                     bullets += player2.shoot("fire")
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
-                    player1.go("stop up")
+                    player1.go("down")
                 if event.key == pygame.K_RIGHT:
                     player1.go("stop right")
                 if event.key == pygame.K_LEFT:
@@ -72,7 +72,7 @@ while True:
                 if event.key == pygame.K_l:
                     player1.shoot("stop")
                 if event.key == pygame.K_w:
-                    player2.go("stop up")
+                    player2.go("down")
                 if event.key == pygame.K_d:
                     player2.go("stop right")
                 if event.key == pygame.K_a:
@@ -84,31 +84,30 @@ while True:
         player1.update(width, height)
         player2.update(width, height)
 
-
         for bullet in bullets:
             bullet.update(width, height)
                
         for bullet in bullets:
             bullet.collidePlayer(player1)
             bullet.collidePlayer(player2)
-            player2.collideBullet(bullet, player2)
-            player1.collideBullet(bullet, player1)
-        
-
+            player2.collideBullet(bullet,player2)
+            player1.collideBullet(bullet,player1)
 
         for bullet in bullets:
             if not bullet.living:
                 bullets.remove(bullet)
-            
         
-
-
+        for player in players:
+            if not player.living:
+                print player
+                players.remove(player)
+        
         bgColor = r,g,b
         screen.fill(bgColor)
         screen.blit(bgImage, bgRect)
         for bullet in bullets:
             screen.blit(bullet.image, bullet.rect)
-        screen.blit(player1.image, player1.rect)
-        screen.blit(player2.image, player2.rect)
+        for player in players:
+            screen.blit(player.image, player.rect)
         pygame.display.flip()
         clock.tick(60)
