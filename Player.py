@@ -29,7 +29,7 @@ class Player(Ball):
                            pygame.image.load("images/p1_walk03.png"),
                            pygame.image.load("images/p1_walk03.png")]
         self.leftImages = [pygame.image.load("images/p1_walk01.png"),
-                           pygame.image.load("images/p1_walk04.png"),
+                           pygame.image.load("images/p1_walk02.png"),
                            pygame.image.load("images/p1_walk03.png"),
                            pygame.image.load("images/p1_walk04.png"),
                            pygame.image.load("images/p1_walk05.png"),
@@ -40,7 +40,7 @@ class Player(Ball):
                            pygame.image.load("images/p1_walk10.png"),
                            pygame.image.load("images/p1_walk11.png")]
         self.rightImages = [pygame.image.load("images/p1_walk01.png"),
-                           pygame.image.load("images/p1_walk04.png"),
+                           pygame.image.load("images/p1_walk02.png"),
                            pygame.image.load("images/p1_walk03.png"),
                            pygame.image.load("images/p1_walk04.png"),
                            pygame.image.load("images/p1_walk05.png"),
