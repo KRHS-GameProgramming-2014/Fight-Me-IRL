@@ -90,8 +90,8 @@ while True:
         for bullet in bullets:
             bullet.collidePlayer(player1)
             bullet.collidePlayer(player2)
-            player2.collideBullet(bullet)
-            player1.collideBullet(bullet)
+            player2.collideBullet(bullet,player2)
+            player1.collideBullet(bullet,player1)
 
         for bullet in bullets:
             if not bullet.living:
