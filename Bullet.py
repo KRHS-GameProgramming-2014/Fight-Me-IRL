@@ -12,6 +12,8 @@ class Bullet(Ball):
                 self.speedx = self.maxSpeed
             if direction == "left" or direction == "up" and "left": 
                 self.speedx = -self.maxSpeed
+            if direction == "down":
+                self.speedy = self.maxSpeed 
 
             self.owner = owner
         

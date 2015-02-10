@@ -28,17 +28,17 @@ class Player(Ball):
                            pygame.image.load("images/p1_walk03.png"),
                            pygame.image.load("images/p1_walk03.png"),
                            pygame.image.load("images/p1_walk03.png")]
-        self.leftImages = [pygame.image.load("images/p1_walk01.png"),
-                           pygame.image.load("images/p1_walk02.png"),
-                           pygame.image.load("images/p1_walk03.png"),
-                           pygame.image.load("images/p1_walk04.png"),
-                           pygame.image.load("images/p1_walk05.png"),
-                           pygame.image.load("images/p1_walk06.png"),
-                           pygame.image.load("images/p1_walk07.png"),
-                           pygame.image.load("images/p1_walk08.png"),
-                           pygame.image.load("images/p1_walk09.png"),
-                           pygame.image.load("images/p1_walk10.png"),
-                           pygame.image.load("images/p1_walk11.png")]
+        self.leftImages = [pygame.image.load("images/p1_walk01L.png"),
+                           pygame.image.load("images/p1_walk02L.png"),
+                           pygame.image.load("images/p1_walk03L.png"),
+                           pygame.image.load("images/p1_walk04L.png"),
+                           pygame.image.load("images/p1_walk05L.png"),
+                           pygame.image.load("images/p1_walk06L.png"),
+                           pygame.image.load("images/p1_walk07L.png"),
+                           pygame.image.load("images/p1_walk08L.png"),
+                           pygame.image.load("images/p1_walk09L.png"),
+                           pygame.image.load("images/p1_walk10L.png"),
+                           pygame.image.load("images/p1_walk11L.png")]
         self.rightImages = [pygame.image.load("images/p1_walk01.png"),
                            pygame.image.load("images/p1_walk02.png"),
                            pygame.image.load("images/p1_walk03.png"),
@@ -64,11 +64,10 @@ class Player(Ball):
         self.gun = self.pistol
         self.shooting = False
         self.living = True
- 
+        
     
-    def collideBullet(self, other, owner):
-        self.owner = owner
-        if other != self.owner:
+    def collideBullet(self, other):
+        if other == self.enemy:
             if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
                 if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
                     self.living = False
@@ -81,7 +80,7 @@ class Player(Ball):
 
     def animate(self):
         if self.waitCount < self.maxWait:
-            self.waitCount += 1
+            self.waitCount += 5
         else:
             self.waitCount = 0
             self.changed = True
