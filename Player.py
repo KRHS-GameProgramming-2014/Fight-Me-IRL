@@ -2,7 +2,7 @@ import pygame
 from Ball import Ball
 from Bullet import Bullet
 from gun import Gun
-
+#kcahah
 class Player(Ball):
     def __init__(self, pos):
         Ball.__init__(self, "images/p1_walk03.png", [0,0], pos)
