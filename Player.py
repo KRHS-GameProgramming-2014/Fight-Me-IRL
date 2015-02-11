@@ -64,10 +64,9 @@ class Player(Ball):
         self.gun = self.pistol
         self.shooting = False
         self.living = True
-        self.owner = owner
+        #self.owner = owner
     
     def collideBullet(self, other):
-        if other == self.enemy:
             if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
                 if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
                     self.living = False
