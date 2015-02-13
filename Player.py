@@ -6,17 +6,17 @@ from gun import Gun
 class Player(Ball):
     def __init__(self, pos):
         Ball.__init__(self, "images/p1_walk03.png", [0,0], pos)
-        self.upImages = [pygame.image.load("images/p1_walk03.png"),
-                         pygame.image.load("images/p1_walk03.png"),
-                         pygame.image.load("images/p1_walk03.png"),
-                         pygame.image.load("images/p1_walk03.png"),
-                         pygame.image.load("images/p1_walk03.png"),
-                         pygame.image.load("images/p1_walk03.png"),
-                         pygame.image.load("images/p1_walk03.png"),
-                         pygame.image.load("images/p1_walk03.png"),
-                         pygame.image.load("images/p1_walk03.png"),
-                         pygame.image.load("images/p1_walk03.png"),
-                         pygame.image.load("images/p1_walk03.png")]
+        self.upImages = [pygame.image.load("images/p1_jump.png"),
+                         pygame.image.load("images/p1_jump.png"),
+                         pygame.image.load("images/p1_jump.png"),
+                         pygame.image.load("images/p1_jump.png"),
+                         pygame.image.load("images/p1_jump.png"),
+                         pygame.image.load("images/p1_jump.png"),
+                         pygame.image.load("images/p1_jump.png"),
+                         pygame.image.load("images/p1_jump.png"),
+                         pygame.image.load("images/p1_jump.png"),
+                         pygame.image.load("images/p1_jump.png"),
+                         pygame.image.load("images/p1_jump.png"),]
         self.downImages = [pygame.image.load("images/p1_walk03.png"),
                            pygame.image.load("images/p1_walk03.png"),
                            pygame.image.load("images/p1_walk03.png"),
