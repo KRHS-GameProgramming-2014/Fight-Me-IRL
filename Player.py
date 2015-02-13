@@ -2,7 +2,7 @@ import pygame
 from Ball import Ball
 from Bullet import Bullet
 from gun import Gun
-#kcahah
+
 class Player(Ball):
     def __init__(self, pos):
         Ball.__init__(self, "images/p1_walk03.png", [0,0], pos)
@@ -50,6 +50,17 @@ class Player(Ball):
                            pygame.image.load("images/p1_walk09.png"),
                            pygame.image.load("images/p1_walk10.png"),
                            pygame.image.load("images/p1_walk11.png")]
+        self.stopImages = [pygame.image.load("images/p1_walk08.png"),
+                           pygame.image.load("images/p1_walk08.png"),
+                           pygame.image.load("images/p1_walk08.png"),
+                           pygame.image.load("images/p1_walk08.png"),
+                           pygame.image.load("images/p1_walk08.png"),
+                           pygame.image.load("images/p1_walk08.png"),
+                           pygame.image.load("images/p1_walk08.png"),
+                           pygame.image.load("images/p1_walk08.png"),
+                           pygame.image.load("images/p1_walk08.png"),
+                           pygame.image.load("images/p1_walk08.png"),
+                           pygame.image.load("images/p1_walk08.png")]
         self.facing = "right"
         self.changed = False
         self.images = self.rightImages
@@ -64,9 +75,11 @@ class Player(Ball):
         self.gun = self.pistol
         self.shooting = False
         self.living = True
-        #self.owner = owner
     
-    def collideBullet(self, other):
+    def collideBullet(self, other, owner):
+        self.owner = owner
+        self.other = other
+        if self.other != owner:
             if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
                 if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
                     self.living = False
@@ -97,7 +110,8 @@ class Player(Ball):
                 self.images = self.rightImages
             elif self.facing == "left":
                 self.images = self.leftImages
-            
+            elif self.facing == "stop":
+                self.images = self.stopImages
             self.image = self.images[self.frame]
     
     def go(self, direction):

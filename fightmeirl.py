@@ -16,7 +16,7 @@ bgImage = pygame.image.load("Menu.png").convert()
 bgRect = bgImage.get_rect()
 
 player1 = Player([800,593])
-player2 = Player([100,593]) 
+player2 = Player([100,593])
 
 
 bullets = []
@@ -90,8 +90,8 @@ while True:
         for bullet in bullets:
             bullet.collidePlayer(player1)
             bullet.collidePlayer(player2)
-            player2.collideBullet(bullet)
-            player1.collideBullet(bullet)
+            player2.collideBullet(bullet, player2)
+            player1.collideBullet(bullet, player1)
 
         for bullet in bullets:
             if not bullet.living:
