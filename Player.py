@@ -138,10 +138,12 @@ class Player(Ball):
     def shoot(self, command):
         if command == "stop":
             self.shooting = False
-        elif command == "fire":
-            return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing, self)]
-            self.shooting = True
-            return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing, self)]
+        if self.facing != "up":
+            if self.facing != "down":
+                if command == "fire":
+                    return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing,self)]
+                    self.shooting = True
+                    return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing,self)]
         else:
             return []
             
