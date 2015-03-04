@@ -1,20 +1,14 @@
-
+import pygame
 from Ball import Ball
 
-class Melee.(Ball):
+class Melee(Ball):
         def __init__(self, pos, bspeed, direction, owner):
             Ball.__init__(self, "images/LAZER.png", [0,0], pos)
-            self.maxSpeed = 0
-            if direction == "up":
-                self.speedx = 0
-                self.speedy = -self.maxSpeed
-            if direction == "right" or direction == "up" and "right":
+            self.maxSpeed = 20
+            if direction == "right": 
                 self.speedx = self.maxSpeed
-            if direction == "left" or direction == "up" and "left": 
+            if direction == "left" :
                 self.speedx = -self.maxSpeed
-            if direction == "down":
-                self.speedx = self.maxSpeed 
-
 
             self.owner = owner
         
@@ -33,3 +27,5 @@ class Melee.(Ball):
             if not self.didBounceX:
                 if self.rect.top < 0 or self.rect.bottom > height:
                     self.living = False
+                        
+        

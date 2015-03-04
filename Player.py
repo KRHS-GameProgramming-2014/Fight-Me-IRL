@@ -1,6 +1,7 @@
 import pygame
 from Ball import Ball
 from Bullet import Bullet
+from melee import Melee
 from gun import Gun
 
 class Player(Ball):
@@ -71,7 +72,7 @@ class Player(Ball):
         self.image = self.images[self.frame]
         self.rect = self.image.get_rect(center = self.rect.center)
         self.pistol = Gun("pistol")
-        self.melee = Gun("melee")
+        self.fist = Gun("melee")
         self.gun = self.pistol
         self.shooting = False
         self.living = True
@@ -144,6 +145,9 @@ class Player(Ball):
                     return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing,self)]
                     self.shooting = True
                     return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing,self)]
+                if command == "melee":
+                    return[Melee(self.rect.center, self.gun.gunSpeed, self.facing,self)]
+                    self.shooting = True
         else:
             return []
             

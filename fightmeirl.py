@@ -1,6 +1,7 @@
 import pygame, sys, random
 from Player import Player
 from Bullet import Bullet
+from melee import Melee
 
 pygame.init()
 
@@ -36,6 +37,7 @@ while True:
     bgRect = bgImage.get_rect()
     
     bullets = []
+    melees = []
     players = [Player([800,593]), Player([100,593])]
 
     while run and len(players) == 2:
@@ -50,6 +52,8 @@ while True:
                     players[0].go("left")
                 if event.key == pygame.K_l:
                     bullets += players[0].shoot("fire")
+                if event.key == pygame.K_m:
+                    melees += players[0].shoot("melee")
                 if event.key == pygame.K_w:
                     players[1].go("up")
                 if event.key == pygame.K_d:
@@ -91,6 +95,19 @@ while True:
             if not bullet.living:
                 bullets.remove(bullet)
         
+        
+        for melee in melees:
+            melee.update(width, height)
+               
+        for melee in melees:
+            for player in players:
+                melee.collidePlayer(player)
+                player.collideBullet(melee)
+
+        for melee in melees:
+            if not melee.living:
+                melees.remove(melee)
+        
         for player in players:
             if not player.living:
                 print player
@@ -101,6 +118,8 @@ while True:
         screen.blit(bgImage, bgRect)
         for bullet in bullets:
             screen.blit(bullet.image, bullet.rect)
+        for melee in melees:
+            screen.blit(melee.image, melee.rect)
         for player in players:
             screen.blit(player.image, player.rect)
         pygame.display.flip()
