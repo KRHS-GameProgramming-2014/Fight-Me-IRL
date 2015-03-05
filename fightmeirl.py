@@ -52,7 +52,7 @@ while True:
                     players[0].go("left")
                 if event.key == pygame.K_l:
                     bullets += players[0].shoot("fire")
-                if event.key == pygame.K_m:
+                if event.key == pygame.K_k:
                     melees += players[0].shoot("melee")
                 if event.key == pygame.K_w:
                     players[1].go("up")
@@ -60,8 +60,10 @@ while True:
                     players[1].go("right")
                 if event.key == pygame.K_a:
                     players[1].go("left")
-                if event.key == pygame.K_SPACE:
+                if event.key == pygame.K_g:
                     bullets += players[1].shoot("fire")
+                if event.key == pygame.K_h:
+                    melees += players[0].shoot("melee")
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
                     players[0].go("down")
