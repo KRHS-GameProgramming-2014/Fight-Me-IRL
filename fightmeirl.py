@@ -38,7 +38,7 @@ while True:
     
     bullets = []
     melees = []
-    players = [Player([800,593]), Player([100,593])]
+    players = [Player([800,593], "left"), Player([100,593], "right")]
 
     while run and len(players) == 2:
         for event in pygame.event.get():

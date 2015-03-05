@@ -5,8 +5,8 @@ from melee import Melee
 from gun import Gun
 
 class Player(Ball):
-    def __init__(self, pos):
-        Ball.__init__(self, "images/p1_walk03.png", [0,0], pos)
+    def __init__(self, pos, facing):
+        Ball.__init__(self, "images/p1_walk01.png", [0,0], pos)
         self.upImages = [pygame.image.load("images/p1_jump.png"),
                          pygame.image.load("images/p1_jump.png"),
                          pygame.image.load("images/p1_jump.png"),
@@ -62,7 +62,7 @@ class Player(Ball):
                            pygame.image.load("images/p1_walk08.png"),
                            pygame.image.load("images/p1_walk08.png"),
                            pygame.image.load("images/p1_walk08.png")]
-        self.facing = "right"
+        self.facing = facing
         self.changed = False
         self.images = self.rightImages
         self.frame = 0
@@ -142,13 +142,11 @@ class Player(Ball):
         if self.facing != "up":
             if self.facing != "down":
                 if command == "fire":
-                    return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing,self)]
-                    self.shooting = True
-                    return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing,self)]
+                        return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing,self)]
+                        self.shooting = True
                 if command == "melee":
                     return[Melee(self.rect.center, self.gun.gunSpeed, self.facing,self)]
                     self.shooting = True
-        else:
-            return []
+        return []
             
 

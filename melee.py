@@ -4,12 +4,14 @@ from Ball import Ball
 class Melee(Ball):
         def __init__(self, pos, bspeed, direction, owner):
             Ball.__init__(self, "images/LAZER.png", [0,0], pos)
-            self.maxSpeed = 20
+            self.maxSpeed = 50
             if direction == "right": 
                 self.speedx = self.maxSpeed
+                self.living = False
             if direction == "left" :
                 self.speedx = -self.maxSpeed
-
+                self.living = False
+                    
             self.owner = owner
         
         def collidePlayer(self, other):
