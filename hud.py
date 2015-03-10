@@ -1,7 +1,7 @@
 import pygame
 
 class Text():
-        def __init__(self, pos, text = "", textSize = 12, textColor=(255,255,255), font = None):
+        def __init__(self, pos, text = "", textSize = 12, textColor=(0,0,0), font = None):
                 self.text = text
                 self.textColor = textColor
                 self.font = pygame.font.Font(font, textSize)
@@ -21,7 +21,7 @@ class Text():
                 pass
 
 class Score(Text):
-        def __init__(self, pos, baseText = "0", textSize = 12, textColor=(255,255,255), font = None):
+        def __init__(self, pos, baseText = "0", textSize = 12, textColor=(0,0,0), font = None):
                 self.score = 0
                 self.baseText = baseText
                 self.text = self.baseText + str(self.score)

@@ -17,7 +17,7 @@ bgColor = r,g,b = 0, 0, 0
 
 run = False
 
-score = Score([width-80, height-25], "Score: ", 36)
+scores = [Score([776, 25], "Score: ", 36),Score([100, 25], "Score: ", 36)]
 
 while True:
     bgImage = pygame.image.load("Menu.png").convert()
@@ -39,7 +39,6 @@ while True:
     bgImage = pygame.image.load("Map.png").convert()
     bgRect = bgImage.get_rect()
     
-    score = [Score([width-80, 25], "Score: ", 36), Score([80,25], "Score: ", 36)
     melees = []
     bullets = []
     players = [Player([800,593], "left"), Player([100,593], "right")]
@@ -121,8 +120,11 @@ while True:
             if not player.living:
                 print player
                 players.remove(player)
-            if not player[0].living
-                score
+        for score in scores:
+            if not player.living:
+                score.update()
+            if not player.living:
+                score.update()
         bgColor = r,g,b
         screen.fill(bgColor)
         screen.blit(bgImage, bgRect)
@@ -132,7 +134,11 @@ while True:
             screen.blit(melee.image, melee.rect)
         for player in players:
             screen.blit(player.image, player.rect)
+        for score in scores:
+            screen.blit(score.image, score.rect)
         pygame.display.flip()
         clock.tick(60)
+  
+
     run = False
 

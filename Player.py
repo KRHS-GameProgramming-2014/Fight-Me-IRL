@@ -62,6 +62,7 @@ class Player(Ball):
                            pygame.image.load("images/p1_walk08.png"),
                            pygame.image.load("images/p1_walk08.png"),
                            pygame.image.load("images/p1_walk08.png")]
+
         self.facing = facing
         self.changed = False
         self.images = self.rightImages
@@ -112,7 +113,8 @@ class Player(Ball):
             elif self.facing == "stop":
                 self.images = self.stopImages
             self.image = self.images[self.frame]
-    
+
+                
     def go(self, direction):
         if direction == "up":
             self.facing = "up"
