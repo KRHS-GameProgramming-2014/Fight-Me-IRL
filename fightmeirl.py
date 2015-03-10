@@ -120,10 +120,11 @@ while True:
             if not player.living:
                 print player
                 players.remove(player)
-        for score in scores:
-            if not player.living:
-                score.update()
-            if not player.living:
+            for score in scores:
+                if not player[0].living:
+                    score[0].increaseScore(1)
+                if not player[1].living:
+                    score[1].increaseScore(1)
                 score.update()
         bgColor = r,g,b
         screen.fill(bgColor)
