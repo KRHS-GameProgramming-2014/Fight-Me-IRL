@@ -2,7 +2,8 @@ import pygame, sys, random
 from Player import Player
 from Bullet import Bullet
 from melee import Melee
-
+from hud import Score
+from hud import Text
 pygame.init()
 
 clock = pygame.time.Clock()
@@ -15,6 +16,8 @@ screen = pygame.display.set_mode(size)
 bgColor = r,g,b = 0, 0, 0
 
 run = False
+
+score = Score([width-80, height-25], "Score: ", 36)
 
 while True:
     bgImage = pygame.image.load("Menu.png").convert()
@@ -36,6 +39,7 @@ while True:
     bgImage = pygame.image.load("Map.png").convert()
     bgRect = bgImage.get_rect()
     
+    score = [Score([width-80, 25], "Score: ", 36), Score([80,25], "Score: ", 36)
     melees = []
     bullets = []
     players = [Player([800,593], "left"), Player([100,593], "right")]
@@ -117,7 +121,8 @@ while True:
             if not player.living:
                 print player
                 players.remove(player)
-        
+            if not player[0].living
+                score
         bgColor = r,g,b
         screen.fill(bgColor)
         screen.blit(bgImage, bgRect)
