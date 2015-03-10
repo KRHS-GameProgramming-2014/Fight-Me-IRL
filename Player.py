@@ -142,8 +142,8 @@ class Player(Ball):
         if self.facing != "up":
             if self.facing != "down":
                 if command == "fire":
-                        return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing,self)]
-                        self.shooting = True
+                    return [Bullet(self.rect.center, self.gun.gunSpeed, self.facing,self)]
+                    self.shooting = True
                 if command == "melee":
                     return[Melee(self.rect.center, self.gun.gunSpeed, self.facing,self)]
                     self.shooting = True

@@ -36,8 +36,8 @@ while True:
     bgImage = pygame.image.load("Map.png").convert()
     bgRect = bgImage.get_rect()
     
-    bullets = []
     melees = []
+    bullets = []
     players = [Player([800,593], "left"), Player([100,593], "right")]
 
     while run and len(players) == 2:
@@ -63,7 +63,7 @@ while True:
                 if event.key == pygame.K_g:
                     bullets += players[1].shoot("fire")
                 if event.key == pygame.K_h:
-                    melees += players[0].shoot("melee")
+                    bullets += players[1].shoot("melee")
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
                     players[0].go("down")
@@ -71,6 +71,8 @@ while True:
                     players[0].go("stop right")
                 if event.key == pygame.K_LEFT:
                     players[0].go("stop left")
+                if event.key == pygame.K_k:
+                    players[0].shoot("stop")
                 if event.key == pygame.K_l:
                     players[0].shoot("stop")
                 if event.key == pygame.K_w:
@@ -79,9 +81,10 @@ while True:
                     players[1].go("stop right")
                 if event.key == pygame.K_a:
                     players[1].go("stop left")
-                if event.key == pygame.K_SPACE:
+                if event.key == pygame.K_g:
                     players[1].shoot("stop")
-                    
+                if event.key == pygame.K_h:
+                    players[1].shoot("stop")
         for player in players:
             player.update(width, height)
 
