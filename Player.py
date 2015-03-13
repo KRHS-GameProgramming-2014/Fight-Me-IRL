@@ -6,6 +6,10 @@ from gun import Gun
 
 class Player(Ball):
     def __init__(self, pos, facing):
+        if facing == "right":
+            self.side = "left"
+        else:
+            self.side = "right"
         Ball.__init__(self, "images/p1_walk01.png", [0,0], pos)
         self.upImages = [pygame.image.load("images/p1_jump.png"),
                          pygame.image.load("images/p1_jump.png"),
@@ -150,5 +154,3 @@ class Player(Ball):
                     return[Melee(self.rect.center, self.gun.gunSpeed, self.facing,self)]
                     self.shooting = True
         return []
-            
-

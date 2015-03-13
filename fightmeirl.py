@@ -17,7 +17,7 @@ bgColor = r,g,b = 0, 0, 0
 
 run = False
 
-scores = [Score([776, 25], "Score: ", 36),Score([100, 25], "Score: ", 36)]
+scores = {"right":Score([776, 25], "Score: ", 36),"left":Score([100, 25], "Score: ", 36)}
 
 while True:
     bgImage = pygame.image.load("Menu.png").convert()
@@ -53,9 +53,9 @@ while True:
                     players[0].go("right")
                 if event.key == pygame.K_LEFT:
                     players[0].go("left")
-                if event.key == pygame.K_l:
+                if event.key == pygame.K_KP0:
                     bullets += players[0].shoot("fire")
-                if event.key == pygame.K_k:
+                if event.key == pygame.K_KP_PERIOD:
                     melees += players[0].shoot("melee")
                 if event.key == pygame.K_w:
                     players[1].go("up")
@@ -74,9 +74,9 @@ while True:
                     players[0].go("stop right")
                 if event.key == pygame.K_LEFT:
                     players[0].go("stop left")
-                if event.key == pygame.K_k:
+                if event.key == pygame.K_KP0:
                     players[0].shoot("stop")
-                if event.key == pygame.K_l:
+                if event.key == pygame.K_KP_PERIOD:
                     players[0].shoot("stop")
                 if event.key == pygame.K_w:
                     players[1].go("down")
@@ -118,14 +118,15 @@ while True:
         
         for player in players:
             if not player.living:
-                print player
+                if player.side == "right":
+                    scores["left"].increaseScore(1)
+                else:
+                    scores["right"].increaseScore(1)
                 players.remove(player)
-            for score in scores:
-                if not player[0].living:
-                    score[0].increaseScore(1)
-                if not player[1].living:
-                    score[1].increaseScore(1)
-                score.update()
+            
+        for score in scores.values():
+            score.update()
+            
         bgColor = r,g,b
         screen.fill(bgColor)
         screen.blit(bgImage, bgRect)
@@ -135,7 +136,7 @@ while True:
             screen.blit(melee.image, melee.rect)
         for player in players:
             screen.blit(player.image, player.rect)
-        for score in scores:
+        for score in scores.values():
             screen.blit(score.image, score.rect)
         pygame.display.flip()
         clock.tick(60)

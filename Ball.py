@@ -34,7 +34,7 @@ class Ball():
                                 self.didBounceX = True
                                 #print "hit xWall"
                 if not self.didBounceY:
-                        if self.rect.bottom > 650:
+                        if self.rect.bottom > 650 or self.rect.top < 0:
                                 self.speedy = 0
                                 self.didBounceY = True
                                 #print "hit xWall"
