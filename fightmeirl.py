@@ -6,6 +6,8 @@ from hud import Score
 from hud import Text
 pygame.init()
 
+#tesr
+
 clock = pygame.time.Clock()
 
 width = 896
