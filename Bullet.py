@@ -4,7 +4,7 @@ from Ball import Ball
 class Bullet(Ball):
         def __init__(self, pos, bspeed, direction, owner):
             Ball.__init__(self, "images/LAZER.png", [0,0], pos)
-            self.maxSpeed = 20
+            self.maxSpeed = 15
             if direction == "right": 
                 self.speedx = self.maxSpeed
             if direction == "left" :

@@ -94,6 +94,7 @@ class Player(Ball):
         self.animate()
         self.changed = False
 
+
     def animate(self):
         if self.waitCount < self.maxWait:
             self.waitCount += 5
