@@ -69,6 +69,22 @@ while True:
                     bullets += players[1].shoot("fire")
                 if event.key == pygame.K_h:
                     bullets += players[1].shoot("melee")
+                    
+                if event.key == pygame.K_1:
+                    pygame.mixer.music.load("Drum.mp3")
+                    pygame.mixer.music.play()
+                if event.key == pygame.K_2:
+                    pygame.mixer.music.load("Drum2.mp3")
+                    pygame.mixer.music.play()
+                if event.key == pygame.K_3:
+                    pygame.mixer.music.load("Drum3.mp3")
+                    pygame.mixer.music.play()
+                if event.key == pygame.K_4:
+                    pygame.mixer.music.load("Drum4.mp3")
+                    pygame.mixer.music.play()
+                if event.key == pygame.K_5:
+                    pygame.mixer.music.load("Drum5.mp3")
+                    pygame.mixer.music.play()
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
                     players[0].go("down")
@@ -90,6 +106,7 @@ while True:
                     players[1].shoot("stop")
                 if event.key == pygame.K_h:
                     players[1].shoot("stop")
+                    
         for player in players:
             player.update(width, height)
 
