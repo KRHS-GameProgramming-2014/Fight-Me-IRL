@@ -6,7 +6,6 @@ from hud import Score
 from hud import Text
 pygame.init()
 
-#test
 
 clock = pygame.time.Clock()
 
